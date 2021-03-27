@@ -18,7 +18,7 @@ import static org.junit.jupiter.api.TestInstance.Lifecycle.PER_CLASS;
  * @author <a href="kuldeepyadav7291@gmail.com">Kuldeep</a>
  */
 @TestInstance(PER_CLASS)
-public class EntityManagerTest {
+public abstract class EntityManagerTest {
     private EntityManagerFactory entityManagerFactory;
 
     @BeforeAll

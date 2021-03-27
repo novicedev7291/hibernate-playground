@@ -2,7 +2,6 @@ package org.example.em.inheritance;
 
 import com.example.model.ExportOrder;
 import com.example.model.RetailOrder;
-import com.sun.org.apache.regexp.internal.RE;
 import org.example.em.EntityManagerTest;
 import org.junit.jupiter.api.Test;
 
