@@ -26,6 +26,8 @@
         <class>com.example.model.product.attribute.SkuAttribute</class>
         <class>com.example.model.course.Course</class>
         <class>com.example.model.course.User</class>
+        <class>com.example.model.profile.UserDetail</class>
+        <class>com.example.model.profile.Profile</class>
             <!--H2 in memory test connection-->
         <properties>
             <property name="javax.persistence.jdbc.driver" value="org.h2.Driver" />
