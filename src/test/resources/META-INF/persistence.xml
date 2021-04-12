@@ -28,6 +28,9 @@
         <class>com.example.model.course.User</class>
         <class>com.example.model.profile.UserDetail</class>
         <class>com.example.model.profile.Profile</class>
+        <class>com.example.model.users.User</class>
+        <class>com.example.model.users.Role</class>
+        <class>com.example.model.users.RoleId</class>
             <!--H2 in memory test connection-->
         <properties>
             <property name="javax.persistence.jdbc.driver" value="org.h2.Driver" />
