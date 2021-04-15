@@ -9,8 +9,12 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import java.util.ArrayList;
 import java.util.List;
+
+import static java.util.stream.Collectors.toList;
 
 @Entity
 @Table(name = "t_groups")
@@ -19,16 +23,13 @@ public class Group {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @ManyToMany(fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.MERGE})
-    @JoinTable(name = "t_group_participants",
-            joinColumns = {
-                    @JoinColumn(name = "groupId")
-            },
-            inverseJoinColumns = {
-                    @JoinColumn(name = "participantId")
-            }
-    )
-    private List<Participant> participants;
+    @OneToMany(fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.MERGE}, mappedBy = "group")
+    private List<GroupParticipant> participants = new ArrayList<>();
+
+    public void addParticipant(Participant p) {
+        GroupParticipant gP = new GroupParticipant(this, p);
+        participants.add(gP);
+    }
 
     public Integer getId() {
         return id;
@@ -39,10 +40,6 @@ public class Group {
     }
 
     public List<Participant> getParticipants() {
-        return participants;
-    }
-
-    public void setParticipants(List<Participant> participants) {
-        this.participants = participants;
+        return participants.stream().map(GroupParticipant::getParticipant).collect(toList());
     }
 }
