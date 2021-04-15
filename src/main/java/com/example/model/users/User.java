@@ -18,7 +18,7 @@ import java.util.List;
 @Table(name = "user")
 @Getter
 @NoArgsConstructor
-public class User {
+public class User extends BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
@@ -35,5 +35,9 @@ public class User {
     public void add(Role role) {
         roles.add(role);
         role.setUser(this);
+    }
+
+    public Integer getId() {
+        return this.id;
     }
 }

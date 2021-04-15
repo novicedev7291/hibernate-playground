@@ -31,6 +31,9 @@
         <class>com.example.model.users.User</class>
         <class>com.example.model.users.Role</class>
         <class>com.example.model.users.RoleId</class>
+        <class>com.example.model.participants.Participant</class>
+        <class>com.example.model.participants.ParticipantId</class>
+        <class>com.example.model.participants.Group</class>
             <!--H2 in memory test connection-->
         <properties>
             <property name="javax.persistence.jdbc.driver" value="org.h2.Driver" />
