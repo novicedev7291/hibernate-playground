@@ -10,6 +10,8 @@ import javax.persistence.Table;
 import java.util.ArrayList;
 import java.util.List;
 
+import static java.util.stream.Collectors.toList;
+
 @Entity
 @Table(name = "participants")
 public class Participant {
@@ -32,5 +34,9 @@ public class Participant {
 
     public Integer getParticipantId() {
         return participantId;
+    }
+
+    public List<Group> getGroups() {
+        return groups.stream().map(GroupParticipant::getGroup).collect(toList());
     }
 }

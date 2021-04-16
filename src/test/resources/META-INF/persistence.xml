@@ -35,6 +35,10 @@
         <class>com.example.model.participants.ParticipantId</class>
         <class>com.example.model.participants.Group</class>
         <class>com.example.model.participants.GroupParticipant</class>
+        <class>com.example.model.participants.PickupStationVendorKey</class>
+        <class>com.example.model.participants.PickupStationVendorDetails</class>
+        <class>com.example.model.participants.PickupStation</class>
+        <class>com.example.model.participants.Vendor</class>
             <!--H2 in memory test connection-->
         <properties>
             <property name="javax.persistence.jdbc.driver" value="org.h2.Driver" />

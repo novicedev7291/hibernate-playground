@@ -70,4 +70,30 @@ class ParticipantTest extends EntityManagerTest {
             Assertions.assertEquals(g.getParticipants().size(), 1);
         });
     }
+
+    @Test
+    void shouldSaveFromParticipantSideBySavingParticipant() {
+        doInTransaction(em -> {
+            Participant participant = new Participant();
+            participant.setParticipantId(12);
+
+            em.persist(participant);
+        });
+
+        doInTransaction(em -> {
+            Participant participant = em.find(Participant.class, 12);
+
+            Group group = new Group();
+
+            participant.addGroup(group);
+
+        });
+
+        doInTransaction(em -> {
+            Participant g = em.find(Participant.class, 12);
+
+            Assertions.assertNotNull(g.getGroups());
+            Assertions.assertEquals(g.getGroups().size(), 1);
+        });
+    }
 }
