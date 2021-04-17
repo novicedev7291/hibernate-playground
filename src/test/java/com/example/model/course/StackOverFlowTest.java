@@ -98,7 +98,6 @@ class StackOverFlowTest extends EntityManagerTest {
             user.setName("Kuldeep Yadav");
 
             UserDetails userDetails = new UserDetails();
-            userDetails.setId(1);
             userDetails.setBirthPlace("Bhiwani");
 
             user.setUserDetails(userDetails);
@@ -112,8 +111,9 @@ class StackOverFlowTest extends EntityManagerTest {
 
             UserDetails userDetails = user.getUserDetails();
 
+            assertNotNull(user);
             assertNotNull(userDetails);
-//            assertEquals(userDetails.getBirthPlace(), "Bhiwani");
+            assertEquals(userDetails.getBirthPlace(), "Bhiwani");
         });
     }
 }

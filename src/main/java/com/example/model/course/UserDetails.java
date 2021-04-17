@@ -6,6 +6,7 @@ import lombok.Setter;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.ForeignKey;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.MapsId;
@@ -24,7 +25,7 @@ public class UserDetails {
     private String birthPlace;
 
     @OneToOne(fetch = FetchType.LAZY)
-//    @MapsId
-    @JoinColumn(name = "user_id")
+    @MapsId
+    @JoinColumn(name = "id", foreignKey = @ForeignKey(name = "fk_user_id"))
     private User user;
 }

@@ -37,7 +37,7 @@ public class User {
 
     @Getter
     @Setter
-    @OneToOne(fetch = FetchType.LAZY, mappedBy = "user", cascade = CascadeType.ALL)
+    @OneToOne(fetch = FetchType.LAZY, mappedBy = "user", cascade = CascadeType.ALL, optional = false)
     private UserDetails userDetails;
 
 
