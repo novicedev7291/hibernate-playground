@@ -2,7 +2,6 @@ package com.example.model.users;
 
 import lombok.Getter;
 
-import javax.persistence.CascadeType;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
@@ -21,13 +20,13 @@ public class Role implements Serializable {
 
     @ManyToOne
     @MapsId("userId")
-    private User user;
+    private AnotherUser anotherUser;
 
     public void setId(RoleId id) {
         this.id = id;
     }
 
-    void setUser(User user) {
-        this.user = user;
+    void setAnotherUser(AnotherUser anotherUser) {
+        this.anotherUser = anotherUser;
     }
 }

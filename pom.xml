@@ -9,11 +9,15 @@
     <version>1.0-SNAPSHOT</version>
     <name>Hibernate Playground</name>
 
+    <properties>
+        <hibernate.version>5.4.8.Final</hibernate.version>
+    </properties>
+
     <dependencies>
         <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-core</artifactId>
-            <version>5.2.10.Final</version>
+            <version>${hibernate.version}</version>
         </dependency>
         <dependency>
             <groupId>org.projectlombok</groupId>

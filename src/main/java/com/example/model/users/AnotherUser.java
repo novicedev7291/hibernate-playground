@@ -18,23 +18,23 @@ import java.util.List;
 @Table(name = "user")
 @Getter
 @NoArgsConstructor
-public class User extends BaseEntity {
+public class AnotherUser extends BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
     private String name;
 
-    @OneToMany(mappedBy = "user", fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
+    @OneToMany(mappedBy = "anotherUser", fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
     private List<Role> roles = new ArrayList<>();
 
-    public User(String name) {
+    public AnotherUser(String name) {
         this.name = name;
     }
 
     public void add(Role role) {
         roles.add(role);
-        role.setUser(this);
+        role.setAnotherUser(this);
     }
 
     public Integer getId() {
