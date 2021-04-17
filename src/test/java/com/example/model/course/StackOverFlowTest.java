@@ -7,6 +7,8 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import static java.util.Arrays.asList;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 class StackOverFlowTest extends EntityManagerTest {
     @Test
@@ -84,7 +86,34 @@ class StackOverFlowTest extends EntityManagerTest {
 
         doInTransaction( em -> {
             UserDetail user = em.find(UserDetail.class, 1);
-            Assertions.assertNotNull(user.getProfile().getIdProfile());
+            assertNotNull(user.getProfile().getIdProfile());
+        });
+    }
+
+    @Test
+    void lazyLoadingForOneToOneAttributeShouldWork() {
+        doInTransaction(em -> {
+            User user = new User();
+            user.setEmail("abc@xyn.com");
+            user.setName("Kuldeep Yadav");
+
+            UserDetails userDetails = new UserDetails();
+            userDetails.setId(1);
+            userDetails.setBirthPlace("Bhiwani");
+
+            user.setUserDetails(userDetails);
+            userDetails.setUser(user);
+
+            em.persist(user);
+        });
+
+        doInTransaction(em -> {
+            User user = em.find(User.class, 1);
+
+            UserDetails userDetails = user.getUserDetails();
+
+            assertNotNull(userDetails);
+            assertEquals(userDetails.getBirthPlace(), "Bhiwani");
         });
     }
 }

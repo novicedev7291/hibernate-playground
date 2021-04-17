@@ -26,6 +26,7 @@
         <class>com.example.model.product.attribute.SkuAttribute</class>
         <class>com.example.model.course.Course</class>
         <class>com.example.model.course.User</class>
+        <class>com.example.model.course.UserDetails</class>
         <class>com.example.model.profile.UserDetail</class>
         <class>com.example.model.profile.Profile</class>
         <class>com.example.model.users.User</class>
