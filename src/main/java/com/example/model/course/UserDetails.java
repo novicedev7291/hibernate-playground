@@ -24,8 +24,8 @@ public class UserDetails {
     @Column(name = "birth_place")
     private String birthPlace;
 
-    @OneToOne(fetch = FetchType.LAZY)
+    @OneToOne
     @MapsId
-    @JoinColumn(name = "id", foreignKey = @ForeignKey(name = "fk_user_id"))
+    @JoinColumn(name = "id")
     private User user;
 }

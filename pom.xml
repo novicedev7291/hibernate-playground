@@ -10,7 +10,7 @@
     <name>Hibernate Playground</name>
 
     <properties>
-        <hibernate.version>5.4.8.Final</hibernate.version>
+        <hibernate.version>5.4.30.Final</hibernate.version>
     </properties>
 
     <dependencies>
@@ -28,6 +28,11 @@
             <groupId>javax.xml.bind</groupId>
             <artifactId>jaxb-api</artifactId>
             <version>2.3.1</version>
+        </dependency>
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-classic</artifactId>
+            <version>1.2.3</version>
         </dependency>
         <dependency>
             <groupId>org.junit.jupiter</groupId>
